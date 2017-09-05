@@ -1,0 +1,25 @@
+.game {
+    &__title {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        border-bottom: 1px solid #444;
+        margin-bottom: 10px;
+    }
+    &__container {
+        display: flex;
+        flex-direction: row;
+    }
+    &__section {
+        display: flex;
+        flex-basis: 33%;
+        justify-content: center;
+    }
+    &__numbers {
+        display: flex;
+        flex-direction: row;
+        flex-basis: 100%;
+        justify-content: center;
+        margin-top: 10px;
+    }
+}

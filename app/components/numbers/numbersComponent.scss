@@ -1,0 +1,22 @@
+.numbers {
+    &__number {
+        display: inline-flex;
+        justify-content: center;
+        font-size: 18px;
+        margin: 0.5em;
+        background-color: #ccc;
+        width: 24px;
+        border-radius: 50%;
+        cursor: pointer;
+        &.selected {
+            background-color: #eee;
+            color: #ddd;
+            cursor: not-allowed;
+        }
+        &.used {
+            background-color: #aaddaa;
+            color: #99bb99;
+            cursor: not-allowed;
+        }
+    }
+}
