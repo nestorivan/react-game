@@ -1,0 +1,13 @@
+.answer{
+    &__selected-number{
+        display: inline-flex;
+        justify-content: center;
+        font-size: 18px;
+        margin: 0.5em;
+        background-color: #ccc;
+        width: 24px;
+        padding: 5px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+}
