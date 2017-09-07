@@ -4,7 +4,7 @@ import './buttonComponent.scss';
 
 const Button = (props) => (
     <div className="button">
-        <button className="button__equal-button">=</button>
+        <button disabled={props.selectedNumbers.length === 0} className="button__equal-button">=</button>
     </div>
 );
 
