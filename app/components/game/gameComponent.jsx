@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Button from './../button/buttonComponent';
 import Stars from './../stars/starsComponent';
 import Answer from './../answer/answerComponent';
@@ -7,8 +7,29 @@ import Numbers from './../numbers/numbersComponent';
 import './gameComponent.scss';
 
 export default class Game extends Component {
-    state = {}
+    state = {
+        selectedNumbers: [],
+        numberOfStars: _.random(1,9)
+    }
+
+    selectNumber = (clickedNumber) => {
+        if(this.state.selectedNumbers.indexOf(clickedNumber) >= 0)
+            return;
+
+        this.setState(prevState => ({
+            selectedNumbers: prevState.selectedNumbers.concat(clickedNumber)
+        }))
+    }
+
+    unselectNumber = (clickedNumber) => {
+        this.setState(prevState => ({
+            selectedNumbers: prevState.selectedNumbers
+            .filter(number => number !== clickedNumber)
+        }))
+    }
+
     render() {
+        const {selectedNumbers , numberOfStars} = this.state;
         return (
             <div className="game">
                 <div className="game__title">
@@ -16,17 +37,17 @@ export default class Game extends Component {
                 </div>
                 <div className="game__container">
                     <div className="game__section">
-                        <Stars />
+                        <Stars numberOfStars={numberOfStars}/>
                     </div>
                     <div className="game__section">
-                        <Button />
+                        <Button selectedNumbers={selectedNumbers}/>
                     </div>
                     <div className="game__section">
-                        <Answer />
+                        <Answer selectedNumbers={selectedNumbers} unselectNumber={this.unselectNumber}/>
                     </div>
                 </div>
                 <div className="game__numbers">
-                    <Numbers />
+                    <Numbers selectedNumbers={selectedNumbers} selectNumber={this.selectNumber}/>
                 </div>
             </div>
         );
